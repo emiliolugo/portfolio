@@ -28,40 +28,14 @@ export default function Navbar() {
         },
     };
 
-    const controls = useDragControls()
-
-    const [isReset, setIsReset] = useState(false);
-
-    // Create motion values
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-
-    // Use transform to map boolean state to transform values
-    const xTransform = useTransform(x, [0, 100], [0, 100]);
-    const yTransform = useTransform(y, [0, 100], [0, 100]);
-
-    // Update motion values when isReset changes
-    useEffect(() => {
-        if (isReset) {
-            // Animate to 100 when reset
-            x.set(100);
-            y.set(100);
-        } else {
-            // Animate back to 0 when not reset
-            x.set(0);
-            y.set(0);
-        }
-    }, [isReset, x, y]);
 
     return (
-        <motion.div className="flex items-baseline">
+        <motion.div className="flex items-baseline text-white">
             <motion.div className="mr-auto" drag
-             onDragStart={() => setIsReset(false)}
-             onDragEnd={() => setIsReset(true)}
-             style={{ x, y }}
-             >
+        dragConstraints={{ left: 20, right: 20, top:20, bottom: 20 }}
+        >
                 <h1 className="text-4xl font-black">Emilio Lugo</h1>
-                <p className="font-light text-zinc-500">Engineer - Web Designer - Student</p>
+                <p className="font-light text-zinc-300">Engineer - Web Designer - Student</p>
             </motion.div>
             <motion.div
                 className="flex gap-x-3"
@@ -72,7 +46,7 @@ export default function Navbar() {
                 {tabs.map((tab, index) => (
                     <motion.ul key={index} variants={itemVariants} className=""
                     whileHover={{scale:1.05}}>
-                        <a className="hover:text-zinc-500">
+                        <a className="text-zinc-500 hover:text-zinc-600">
                         {tab.name}
                         </a>
                     </motion.ul>
