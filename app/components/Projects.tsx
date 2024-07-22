@@ -82,7 +82,7 @@ export const Projects = () => {
   const [learnMoreHovered, setLearnMoreHovered] = useState(Array.from({ length: projInfo.length }, () => false));
 
   return (
-    <div>
+    <div className="p-12">
         <motion.div className="h-full w-full flex flex-col items-center justify-center pb-0">
             <div className="flex">
             <h2 className="text-yellow-500 text-center text-5xl font-black">
