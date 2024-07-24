@@ -6,7 +6,6 @@ export default function Landing(){
     return(
         <div className="w-full bg-gradient-to-r from-yellow-600 to-yellow-400">
         <div className=" w-full p-10">
-            <Navbar />
         </div>
         <div className="flex p-10">
             <div className="text-white">
@@ -26,7 +25,6 @@ export default function Landing(){
             width={128} height={128}
             />
         </div>
-        <img aria-hidden="true" className="bg-gradient-to-r from-yellow-400 to-yellow-600 scale-x-[-1]" src="https://d33wubrfki0l68.cloudfront.net/25e94eabb1cdec2613bd265d645dc15324bacfe8/86f45/images/landing-swoosh.svg" alt=""></img>
         </div>
     )
 }

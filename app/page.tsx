@@ -6,6 +6,7 @@ import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import Landing from './components/Landing';
 import Socials from './components/Socials';
+import Skills from './components/Skills';
 
 
 export default function Home() {
@@ -25,12 +26,14 @@ export default function Home() {
 
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between transition-colors duration-500 ${transitioning ? 'bg-zinc-100' : 'bg-yellow-500'} overflow-x-hidden`}
+      
     >
     {!loading && 
     <>
+    <Navbar />
     <Landing />
     <Socials />
+    <Skills />
     </>}
       {loading ? 
       <div className="text-white flex-col flex items-center justify-center overflow-x-hidden w-400 h-400">
