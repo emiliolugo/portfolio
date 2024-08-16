@@ -24,6 +24,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    overflow-x: hidden;
 }
 
 @layer utilities {
@@ -32,7 +33,7 @@ body {
   }
 }
 .larger {
-  height: 300vh;
+  height: 400vh;
   position: relative;
 }
 
@@ -68,6 +69,71 @@ body {
   position: absolute;
 
 }
+.first-section
+{
+  --s: 194px; /* control the size */
+  --c1: #132156;
+  --c2: #0C163B;
+  
+  --_l:#0000 calc(25%/3),var(--c1) 0 25%,#0000 0;
+  --_g:conic-gradient(from 120deg at 50% 87.5%,var(--c1) 120deg,#0000 0);
+  background:
+    var(--_g),var(--_g) 0 calc(var(--s)/2),
+    conic-gradient(from 180deg at 75%,var(--c2) 60deg,#0000 0),
+    conic-gradient(from 60deg at 75% 75%,var(--c1) 0 60deg,#0000 0),
+    linear-gradient(150deg,var(--_l)) 0 calc(var(--s)/2),
+    conic-gradient(at 25% 25%,#0000 50%,var(--c2) 0 240deg,var(--c1) 0 300deg,var(--c2) 0),
+    linear-gradient(-150deg,var(--_l)) #1c2d69 /* third color here */;
+  background-size: calc(0.866*var(--s)) var(--s);
+  box-shadow: 0 1em 1em -1em rgba(0, 0, 0, .25);
 
+}
+
+
+.shape {
+  width: 290px;
+  height: 350px;
+  transition: border-radius 1s ease-out;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph 8s ease-in-out infinite both alternate;
+  position: absolute;
+  overflow: hidden;
+  z-index: 5;
+}
+
+
+.bd {
+  width: 142%;
+  height: 142%;
+  position: absolute;
+  left: -21%;
+  top: -21%;
+  background: rgb(255,238,131);
+background: linear-gradient(90deg, rgba(255,238,131,1) 0%, rgba(244,75,0,1) 100%);
+  background-size: 100%;
+  background-position: center center;
+  display: flex;
+  color: #003;
+  font-size: 5vw;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 1;
+  z-index: 2;
+}
+
+@keyframes morph {
+  0% {border-radius: 63% 37% 52% 48% / 43% 46% 54% 57%, } 
+  100% {border-radius: 40% 60%;} 
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+
+}
 
 

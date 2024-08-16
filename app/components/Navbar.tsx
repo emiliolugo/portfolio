@@ -1,67 +1,123 @@
-"use client"
-
-import { motion, useScroll, useTransform } from "framer-motion";
+import { color, motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
-import image1 from "/public/images/wordsearch.png"
-export default function Navbar() {
-    const ref = useRef(null);
-    const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end']});
-    
-    const words = [
-         "Engineer", "Web Developer", "Student", "Learner", "Innovator", "Designer", 
-        "Creator", "Thinker", "Problem Solver", "Artist", "Coder", "Analyst", 
-        "Mentor", "Leader", "Researcher", "Technologist", "Strategist", "Enthusiast", 
-        "Writer", "Explorer", "Entrepreneur", "Collaborator", "Visionary", 
-        "Planner", "Organizer", "Developer", "Architect", "Producer", 
-        "Consultant", "Instructor"
-    ];
-    const scale4 = useTransform(scrollYProgress, [0, 1], [45, 2]); // Adjust the scale to zoom in more initially
-    const scaleSub= useTransform(scrollYProgress, [0, 1], [2, 2]); // Adjust the scale to zoom in more initially
+import { Foldit } from "next/font/google";
+import { MailIcon, MouseIcon, ScrollTextIcon } from "lucide-react";
+import { Stalinist_One } from "next/font/google";
+const stalinist_one = Stalinist_One({ subsets: ["latin"], weight: '400',variable: '--font-stalinist_one'});
+export default function LandingPage() {
+  
 
-    const getRandomPosition = () => {
-        const top = Math.random() * 90 + "vh"; // Random top position
-        const left = Math.random() * 90 + "vw"; // Random left position
-        return { top, left };
-    };
-
-    const floatingAnimation = {
-        x: [0, 30, -30, 30, -30, 0],
-        y: [0, 30, 0, -30, 0, 30],
-    }
-
-    return (
-        <div className=" larger" ref={ref}>
+  return (
+    <div className="h-screen first-section flex flex-col justify-center ">
+    <div className="md:flex text-white p-8">
+      {/* Vertical and Horizontal Lines */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        {/* Left Vertical Line */}
+        <motion.div
+          className="absolute bottom-7 left-5 bg-white rounded-full"
+          initial={{ height: 0 }}
+          animate={{ height: "20vh" }}
+          transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }}
+          style={{ width: "1px" }}
+        />
+        {/* Right Vertical Line */}
+        <motion.div
+          className="absolute top-7 right-5 bg-white rounded-full"
+          initial={{ height: 0 }}
+          animate={{ height: "20vh" }}
+          transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }}
+          style={{ width: "1px" }}
+        />
+        {/* Top Horizontal Line */}
+        <motion.div
+          className="absolute top-5 right-7 bg-white rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: "20vh" }}
+          transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }}
+          style={{ height: "1px" }}
+        />
+        {/* Bottom Horizontal Line */}
+        <motion.div
+          className="absolute bottom-5 left-7 bg-white rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: "20vh" }}
+          transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }}
+          style={{ height: "1px" }}
+        />
+      </div>
+      <div className="flex flex-col md:flex-row items-center  h-full w-full p-10">
+        {/* Left Side: Text */}
+        <div className="md:w-1/2 w-full flex flex-col justify-center self-center space-y-2 p-4">
+          <motion.div
+            className="text-sm font-light font-mono"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Hello there, I'm
+          </motion.div>
+          <motion.div
+            className="md:text-5xl text-3xl -ml-1 md:w-full w-[100vw] lg:text-nowrap"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <h1 className={`group ${stalinist_one.className}`}>
+              <span>E</span>
+              <span className="group-hover:text-[#F6721F] duration-500">M</span>
+              <span>I</span>
+              <span>L</span>
+              <span>I</span>
+              <span>O</span>
+              <span> </span>
+              <span>L</span>
+              <span>U</span>
+              <span>G</span>
+              <span className="group-hover:text-[#F6721F] duration-500 delay-200">O</span>
+            </h1>
+          </motion.div>
+          
             
-                <div className="sticks bg-yellow-500">
-                    <div className="element">
-                        <motion.div style= {{ scale: scale4, zIndex: 99 }} className="name-containter z-99">
-                            <h1 className="font-black text-white text-center text-6xl">Emilio <br></br>Lugo</h1> 
-                        </motion.div>
-                        {words.map((word, index) => {
-                        const { top, left } = getRandomPosition();
-                        return (
-                            <motion.div
-                                key={index}
-                                style={{  scale: scaleSub, position: 'absolute', top, left, zIndex: 0 }}
-                                className="name-container"
-                                animate={floatingAnimation}
-                        transition={{ 
-                            repeat: Infinity, 
-                            duration: 5, 
-                            
-                            ease: "linear",
-                            repeatType: "loop",
-                            delay: Math.random() * 4 // Adding random delay for staggered effect
-                        }}
-                            >
-                                <h1 className="font-light text-black/20 text-center text-2xl">{word}</h1>
-                            </motion.div>
-                        );
-                    })}
-                    </div>
-                </div>
-                
+            
+          
         </div>
-    );
+
+        {/* Right Side: Image Placeholder */}
+        <div className="md:w-1/2 w-full flex justify-center items-center ">
+      <div className="shape md:block hidden">
+        <div className="bd">
+          
+          <Image className=" mt-30 ml-2" src={'/images/headshot.png'} height={275} width={275} alt="Headshot Image of Me" />
+        </div>
+      </div>
+     </div>
+  </div>
+  </div>
+  <div >
+  <motion.div className="flex gap-x-2 px-20 mx-1 mb-10">
+            <button className="rounded-xl border-2 p-3 hover:bg-white hover:text-black duration-500 text-white">
+            <a href="/resume-dm.pdf" target="_blank" rel="noopener">
+              <div className="flex gap-x-1">
+                
+              <ScrollTextIcon className="hidden md:block"/>
+              Resume
+              </div></a>
+            </button>
+            <button className="rounded-xl border-2 border-[#F6721F] p-3 hover:bg-transparent hover:text-white bg-[#F6721F] hover:text-[#F6721F] duration-500">
+              <a href="mailto:emilio23lugo@gmail.com" target="_blank" rel="noopener" >
+              <div className="flex gap-x-1">
+            <MailIcon className="hidden md:block"/>
+              Contact</div></a>
+            </button>
+          </motion.div>
+          <div className="flex items-end justify-center">
+    <span>
+    <MouseIcon className="absolute inline-flex  text-white"/>
+    <MouseIcon className="relative inline-flex animate-ping 1s text-white"/>
+    </span>
+    </div>
+  </div>
+        </div>
+    
+  );
 }

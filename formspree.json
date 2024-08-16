@@ -1,0 +1,18 @@
+{
+    "forms": {
+      "contact": {
+        "name": "Contact Form",
+        "captcha": {
+          "type": "recaptcha",
+          "recaptchaSecret": "my-secret"
+        },
+        "fields": {
+          "email": { "type": "email", "required": true },
+          "message": { "type": "text", "required": true }
+        },
+        "actions": [
+          { "type": "email", "to": "emilio23lugo@gmail.com" }
+        ]
+      }
+    }
+  }

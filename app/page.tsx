@@ -1,20 +1,21 @@
 "use client"
 import { useState, useEffect } from 'react';
 import { Projects } from "./components/Projects";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
-import Landing from './components/Landing';
+import Intro from './components/Intro';
 import Socials from './components/Socials';
 import Skills from './components/Skills';
-
+import ContactPage from './components/Contact';
+import { FormspreeProvider } from '@formspree/react';
+import { FORM_KEY } from '@/formkey';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [transitioning, setTransitioning] = useState(false);
 
   useEffect(() => {
-    // Simulate a delay to show the loader
     const timer = setTimeout(() => {
       setTransitioning(true); // Start transition
       setTimeout(() => setLoading(false), 500); // Delay hiding content to show transition
@@ -25,23 +26,32 @@ export default function Home() {
   }, []);
 
   return (
-    <main
-      
-    >
-    {!loading && 
-    <>
-    <Navbar />
-    <Landing />
-    <Socials />
-    <Skills />
-    </>}
-      {loading ? 
-      <div className="text-white flex-col flex items-center justify-center overflow-x-hidden w-400 h-400">
-        <Loader /> Loading...</div> 
-        
-      : <div className='p-10'>
-        <Projects />
-        </div>}
+    <main className='bg-[#132156]'>
+      <AnimatePresence>
+        {loading ? (
+          <div className="text-white flex-col flex items-center justify-center overflow-x-hidden h-screen">
+            <Loader />
+            <p className='mt-auto ml-auto p-10 flex items-end'>
+              Preparing your experience &nbsp;
+              <span className="loading loading-dots loading-xs mt-2"></span>
+            </p>
+          </div>
+        ) : (
+          
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: .5, duration: 1 }}
+              
+            >
+              <Navbar />
+              <Intro />
+              <Projects />
+              <Skills />
+              <ContactPage />
+            </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
