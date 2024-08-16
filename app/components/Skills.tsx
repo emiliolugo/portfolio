@@ -1,6 +1,6 @@
 "use client"
 
-import { animate, motion, useMotionValue, useTransform, useScroll } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 import Image from "next/image";
 import CSSlogo from "/public/css-3.svg";
 import HTMLlogo from "/public/html-1.svg";

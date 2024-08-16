@@ -5,11 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import Intro from './components/Intro';
-import Socials from './components/Socials';
 import Skills from './components/Skills';
 import ContactPage from './components/Contact';
-import { FormspreeProvider } from '@formspree/react';
-import { FORM_KEY } from '@/formkey';
+
 
 export default function Home() {
   const [loading, setLoading] = useState(true);

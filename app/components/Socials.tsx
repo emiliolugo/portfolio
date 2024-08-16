@@ -1,5 +1,6 @@
 import { LinkedinIcon, MailIcon } from "lucide-react";
 import { motion } from "framer-motion"
+import Image from "next/image";
 export default function Socials() {
     const socials = [
         {
@@ -21,7 +22,7 @@ export default function Socials() {
                 <motion.div key={social.name} className="flex hover:drop-shadow-xl filter invert"
                 whileHover={{ scale: 1.1 }}>
                     <a href={social.href} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                        <img className="w-8 h-8" src={social.image} alt={social.name} />
+                        <Image src={social.image} alt={social.name} width={32} height={32}/>
                     </a>
                 </motion.div>
             ))}
