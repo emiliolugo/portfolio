@@ -54,7 +54,7 @@ export default function LandingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Hello there, I'm
+            Hello there, I&apos;m
           </motion.div>
           <motion.div
             className="md:text-5xl text-3xl -ml-1 md:w-full w-[100vw] lg:text-nowrap"

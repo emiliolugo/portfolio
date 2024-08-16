@@ -13,7 +13,7 @@ export default function Intro(){
       </h1>
       <div className="flex flex-col md:flex-row">
       <p className="text-white mt-10 mx-5 w-full md:w-1/2 text-md">
-        Hello there, I'm Emilio, a student and passionate software developer. 
+        Hello there, I&apos;m Emilio, a student and passionate software developer. 
         I love designing websites as much as I love working under the hood.
         It all started with a <span className="font-semibold">Space Invaders</span> clone I coded in scratch during my middle school years.
         Since then I have pursued education in tech, and have made countless projects of my own.
