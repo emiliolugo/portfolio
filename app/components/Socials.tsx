@@ -17,7 +17,7 @@ export default function Socials() {
     ];
 
     return (
-        <div className="flex gap-x-4">
+        <div className="flex gap-x-4 justify-center">
             {socials.map((social) => (
                 <motion.div key={social.name} className="flex hover:drop-shadow-xl filter invert"
                 whileHover={{ scale: 1.1 }}>

@@ -103,14 +103,14 @@ export default function Skills() {
     }, [languagesHovered]);
 
     return (
-        <motion.div  className="w-full bg-[#132156] drop-shadow-xl p-10 md:flex justify-around  items-center h-[100vh] md:h-[150vh] drop-shadow-xl text-white ">
+        <motion.div  className="w-full bg-[#132156]  p-10 md:flex justify-around  items-center h-[70vh] md:h-[150vh]  text-white ">
             <div className="flex flex-col items-center">
                 <div className={stalinist_one.className}>
                 <h2 className="font-black md:text-6xl text-3xl flex mb-10">
                     SK<h2 className="text-yellow-500">i</h2>LLS
                 </h2>
                 </div>
-                <motion.h3 className={`text-3xl font-semibold ${displayedColor}`}
+                <motion.h3 className={`text-3xl font-semibold ${displayedColor} md:block hidden`}
                     key={displayedName} // Use displayedName as key to trigger remounting
                     initial={{ opacity: 0, x: -5 }}
                     animate={{ opacity: 1, x: 0 }}

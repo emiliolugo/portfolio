@@ -24,7 +24,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className='bg-[#132156]'>
+    <main className='bg-[#132156] overflow-x-hidden'>
       <AnimatePresence>
         {loading ? (
           <div className="text-white flex-col flex items-center justify-center overflow-x-hidden h-screen">

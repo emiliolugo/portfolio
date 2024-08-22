@@ -1,7 +1,7 @@
 import { color, motion } from "framer-motion";
 import Image from "next/image";
 import { Foldit } from "next/font/google";
-import { MailIcon, MouseIcon, ScrollTextIcon } from "lucide-react";
+import { ArrowDownIcon, MailIcon, MouseIcon, ScrollTextIcon } from "lucide-react";
 import { Stalinist_One } from "next/font/google";
 const stalinist_one = Stalinist_One({ subsets: ["latin"], weight: '400',variable: '--font-stalinist_one'});
 export default function LandingPage() {
@@ -57,7 +57,7 @@ export default function LandingPage() {
             Hello there, I&apos;m
           </motion.div>
           <motion.div
-            className="md:text-5xl text-3xl -ml-1 md:w-full w-[100vw] lg:text-nowrap"
+            className="md:text-5xl text-2xl -ml-1 md:w-full w-[100vw] lg:text-nowrap"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -94,7 +94,7 @@ export default function LandingPage() {
   </div>
   </div>
   <div >
-  <motion.div className="flex gap-x-2 px-20 mx-1 mb-10">
+  <motion.div className="flex gap-x-2 px-20 mx-1 mb-10 justify-center md:justify-start">
             <button className="rounded-xl border-2 p-3 hover:bg-white hover:text-black duration-500 text-white">
             <a href="/resume-dm.pdf" target="_blank" rel="noopener">
               <div className="flex gap-x-1">
@@ -112,8 +112,14 @@ export default function LandingPage() {
           </motion.div>
           <div className="flex items-end justify-center">
     <span>
+      <div className="hidden md:block">
     <MouseIcon className="absolute inline-flex  text-white"/>
     <MouseIcon className="relative inline-flex animate-ping 1s text-white"/>
+    </div>
+    <div className="bloack md:hidden">
+    <ArrowDownIcon className="absolute inline-flex  text-white"/>
+    <ArrowDownIcon className="relative inline-flex animate-ping 1s text-white"/>
+    </div>
     </span>
     </div>
   </div>

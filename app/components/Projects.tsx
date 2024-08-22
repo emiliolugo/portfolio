@@ -125,7 +125,7 @@ export const Projects = () => {
   }, []);
 
   return (
-    <div ref={ref} className="p-12 bg-[#132156] md:h-[100vh] h-[200vh] md:relative md:w-[120vw] overflow-x-hidden  ">
+    <div ref={ref} className="md:p-12 bg-[#132156] md:h-[100vh] h-[150vh] md:relative md:w-[120vw] overflow-x-hidden  ">
       <div className="lg:text-6xl text-4xl text-center md:text-start text-white font-bold mb-10 md:tracking-wide">
         <h1 className={`box-shadow-xl shadow-white ${stalinist_one.className}`}>
           <span className="text-yellow-500">PRO</span>

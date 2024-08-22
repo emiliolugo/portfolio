@@ -44,7 +44,7 @@ const ContactForm: React.FC = () => {
       netlify-honeypot="bot-field"
       data-netlify="true"
       onSubmit={handleSubmit}
-      className="p-4 max-w-md text-white md:w-[70%] mr-auto"
+      className="md:p-4 max-w-md text-white md:w-[70%] mr-auto mb-5 md:mb-0"
     >
       <input type="hidden" name="form-name" value="contact" />
       <p className="hidden">
