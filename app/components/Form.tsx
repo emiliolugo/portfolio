@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react';
 
 const ContactForm: React.FC = () => {
@@ -45,7 +47,7 @@ const ContactForm: React.FC = () => {
     <form
       name="contact"
       onSubmit={handleSubmit}
-      className="md:p-4 max-w-md text-white md:w-[70%] mr-auto mb-5 md:mb-0"
+      className="md:p-4 max-w-md text-white md:w-[70%] mr-auto ml-auto lg:ml-0 mb-5 md:mb-0"
     >
       <input type="hidden" name="form-name" value="contact" />
       <p className="hidden">
