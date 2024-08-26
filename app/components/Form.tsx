@@ -22,13 +22,13 @@ const ContactForm: React.FC = () => {
   
     try {
       // Send form data to Netlify using fetch
-      const response = await fetch('/__forms.html', {
+      const response = await fetch('/public/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as any).toString(), // Type assertion to prevent TS errors
       });
 
-      if (response) {
+      if (response.ok) {
         setSubmissionStatus('Thank you for your message!');
         setFormData({ name: '', email: '', message: '' }); // Clear the form fields
       } else {
@@ -44,9 +44,6 @@ const ContactForm: React.FC = () => {
   return (
     <form
       name="contact"
-      method="post"
-      netlify-honeypot="bot-field"
-      data-netlify="true"
       onSubmit={handleSubmit}
       className="md:p-4 max-w-md text-white md:w-[70%] mr-auto mb-5 md:mb-0"
     >
