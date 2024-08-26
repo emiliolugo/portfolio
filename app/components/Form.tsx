@@ -22,13 +22,13 @@ const ContactForm: React.FC = () => {
   
     try {
       // Send form data to Netlify using fetch
-      const response = await fetch('/--forms.html', {
+      const response = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as any).toString(), // Type assertion to prevent TS errors
       });
 
-      if (response.ok) {
+      if (response) {
         setSubmissionStatus('Thank you for your message!');
         setFormData({ name: '', email: '', message: '' }); // Clear the form fields
       } else {
