@@ -15,15 +15,17 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    // Construct the form data for Netlify
+  
+    // Use FormData to collect form data
     const form = event.currentTarget;
-    const formDataToSubmit = new FormData(form);
-
+    const formData = new FormData(form);
+  
     try {
-      const response = await fetch('/', {
+      // Send form data to Netlify using fetch
+      const response = await fetch('/--forms.html', {
         method: 'POST',
-        body: formDataToSubmit,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(), // Type assertion to prevent TS errors
       });
 
       if (response.ok) {
@@ -33,14 +35,16 @@ const ContactForm: React.FC = () => {
         setSubmissionStatus('Oops! Something went wrong.');
       }
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmissionStatus('Oops! Something went wrong.');
     }
   };
+  
 
   return (
     <form
       name="contact"
-      method="POST"
+      method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
       onSubmit={handleSubmit}
