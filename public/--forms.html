@@ -1,11 +1,51 @@
 <html>
     <head></head>
     <body>
-        <form name="feedback" data-netlify="true" hidden method="post">
-            <input type="hidden" name="form-name" value="feedback" />
-            <input name="name" type="text" />
-            <input name="email" type="text" />
-            <input name="message" type="text" />
-        </form>
+        <form
+        hidden
+      name="contact"
+      method="post"
+      netlify-honeypot="bot-field"
+      data-netlify="true"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p className="hidden">
+        <label>
+          Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+        </label>
+      </p>
+      <div>
+        <label htmlFor="name" className="block">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+            
+          required
+        />
+      </div>
+      <div >
+        <label htmlFor="email" className="block">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="block">Talk to me!</label>
+        <textarea
+          id="message"
+          name="message"
+          
+          required></textarea>
+        
+      </div>
+      <button
+        type="submit"
+      >
+        Send
+      </button>
     </body>
 </html>
